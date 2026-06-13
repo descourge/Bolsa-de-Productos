@@ -164,6 +164,24 @@ docker compose exec app php artisan storage:link
 
 ---
 
+## Primer Uso
+
+Después de levantar los contenedores por primera vez, es necesario ejecutar los siguientes comandos:
+
+```bash
+docker compose exec app php artisan key:generate
+
+docker compose exec app php artisan migrate --seed
+
+docker compose exec app php artisan storage:link
+```
+
+Una vez completados estos pasos, la aplicación estará lista para ser utilizada.
+
+> **Nota:** El proyecto incluye los assets compilados de Vite (`public/build`) para simplificar la instalación y evitar dependencias adicionales durante la evaluación técnica.
+
+---
+
 ## URLs del Sistema
 
 ### Aplicación Laravel
@@ -183,6 +201,26 @@ http://localhost:8001
 ```text
 http://localhost:8001/docs
 ```
+
+---
+
+## Credenciales de Prueba
+
+Después de ejecutar:
+
+```bash
+docker compose exec app php artisan migrate --seed
+```
+
+se crearán automáticamente los siguientes usuarios:
+
+| Nombre | Email                                         | Contraseña |
+| ------ | --------------------------------------------- | ---------- |
+| Luis   | [luis@example.com](mailto:luis@example.com)   | password   |
+| Diego  | [diego@example.com](mailto:diego@example.com) | password   |
+| Pablo  | [pablo@example.com](mailto:pablo@example.com) | password   |
+
+Estas cuentas permiten probar autenticación, creación de documentos y validación de permisos entre usuarios.
 
 ---
 
