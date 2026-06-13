@@ -1,0 +1,18 @@
+# Laravel
+laravel-app/vendor/
+laravel-app/node_modules/
+laravel-app/.env
+laravel-app/public/storage
+
+# Python
+python-service/venv/
+python-service/.venv/
+python-service/__pycache__/
+python-service/*.pyc
+
+# Docker
+postgres_data/
+
+# IDE
+.vscode/
+.idea/
