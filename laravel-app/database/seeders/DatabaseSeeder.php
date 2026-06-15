@@ -13,19 +13,19 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        User::factory()->create([
+        User::create([
             'name' => 'Luis',
             'email' => 'luis@example.com',
             'password' => Hash::make('password'),
         ]);
 
-        User::factory()->create([
+        User::create([
             'name' => 'Diego',
             'email' => 'diego@example.com',
             'password' => Hash::make('password'),
         ]);
 
-        User::factory()->create([
+        User::create([
             'name' => 'Pablo',
             'email' => 'pablo@example.com',
             'password' => Hash::make('password'),
