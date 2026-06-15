@@ -8,7 +8,8 @@ services:
     container_name: laravel-app
 
     volumes:
-    - ./laravel-app:/var/www
+      - ./laravel-app:/var/www
+      - vendor_data:/var/www/vendor
 
     ports:
       - "8000:8000"
@@ -71,6 +72,7 @@ services:
 
 volumes:
   postgres_data:
+  vendor_data:
 
 networks:
   app-network:
