@@ -14,7 +14,12 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN composer install --no-interaction --prefer-dist
+RUN composer install \
+    --no-dev \
+    --no-interaction \
+    --prefer-dist \
+    --no-progress \
+    --optimize-autoloader
 
 RUN mkdir -p \
     storage/framework/cache \
@@ -23,10 +28,12 @@ RUN mkdir -p \
     storage/logs \
     bootstrap/cache
 
-RUN chown -R www-data:www-data storage bootstrap/cache
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
-RUN chmod -R 775 storage bootstrap/cache
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 EXPOSE 9000
+
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["php-fpm"]
